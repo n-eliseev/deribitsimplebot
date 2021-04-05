@@ -1,0 +1,7 @@
+dist/
+.cache
+*.code-workspace
+*.log
+.backup
+*.log
+*.local.*

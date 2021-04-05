@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "deribitsimplebot"
+version = "0.2.0"
+description = "Class set for the implementation of a simple bot working with the Deribit crypto exchange"
+authors = ["Eliseev Nikolay <n.a.eliseev@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+anyio = "^2.1.0"
+PyYAML = "^5.4.1"
+json5 = "^0.9.5"
+websockets = "^8.1"
+mysql-connector-python = "^8.0.23"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

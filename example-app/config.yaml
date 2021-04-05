@@ -1,0 +1,75 @@
+bot:
+
+  url: wss://test.deribit.com/ws/api/v2
+
+  order_label: 'dsb'
+
+  # ID по которому получает логгер модуль (logging.getLoger(ID))
+  logger: 'derebit_bot'
+  
+  auth:
+    grant_type: 'client_credentials'
+    client_id: ''
+    client_secret: ''
+
+  # Инструменты с которыми будет работать бот    
+  instrument:
+
+    # Настройки по умолчанию
+    default:
+      gap: 100.0
+      gap_ignore: 50.0
+      price_id: 'mark_price'
+      amount: 10
+
+    # Далее перечислены инструменты с которыми работает бот
+	  # Для каждого из них указан 
+	  #  - btc-perpetual - по умолчанию
+	  #  - eth-perpetual - объем входа 5, остальное по умолчанию
+    btc-perpetual:
+    eth-perpetual:
+
+
+synch:
+  mod: 1
+  actual: True
+
+# Настройки для подключения к БД
+db: &db-cred
+  user: 'root'
+  password: ''
+  host: '127.0.0.1'
+  database: ''
+  charset: 'utf8mb4'
+
+# См. настройки от модуля logging
+# https://docs.python.org/3/library/logging.config.html
+logging:
+  version: 1
+  
+  formatters:
+    simple:
+      format: '%(asctime)s %(name)s [%(levelname)s]: %(message)s'
+
+  handlers:
+    console:
+      class: 'logging.StreamHandler'
+      level: 'INFO'
+      formatter: 'simple'
+      stream: 'ext://sys.stdout'
+    file:
+      class: 'logging.FileHandler'
+      level: 'WARNING'
+      filename: 'bot_log.log'
+    mysqldb:
+      class: 'deribitsimplebot.db.CLogMySQLHandler'
+      level: 'INFO'
+      <<: *db-cred
+
+  loggers:
+    derebit_bot:
+      handlers: [mysqldb, file]
+
+  root:
+    level: 'INFO'
+    handlers: [console,file]
