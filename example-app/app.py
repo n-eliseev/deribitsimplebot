@@ -19,8 +19,8 @@ def main():
 
     # Запускаем бота
     bot.run(
-        synch_mod = config['synch_mod'], 
-        synch_actual = config['synch_actual']
+        synch_mod = config['synch']['mod'], 
+        synch_actual = config['synch']['actual']
     )
 
 # Запуск

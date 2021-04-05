@@ -1,14 +1,12 @@
 # DeribitSimpleBot
 
 Реализация простого бота для криптобиржи Deribit.\
-Реализация для websockets JSON-RPC v.2 ([Документация](https://docs.deribit.com/))
+Работает на Websockets JSON-RPC v.2 ([Документация](https://docs.deribit.com/))
 
 ## Возможности
  1. Возможность работы с несколькими инструментами одновременно
  2. Возобновление работы после остановки
  3. Возможность использвоать разные системы хранения ордеров
-
-## Рабочий пример
 
 
 ## Алгоримт работы
@@ -27,6 +25,13 @@ Python >=3.7, <4.0
 ```
 pip install deribitsimplebot
 ```
+
+## Рабочий пример
+ - [Полный рабочий пример](https://github.com/n-eliseev/deribitsimplebot/tree/master/example-app)
+ - [Docker-compose приложение](https://github.com/n-eliseev/deribitsimplebotapp) (*для развёртывания в одну команду*) 
+
+**Описание и примеры, ниже:**
+
 ## Настройка
 
 Перед запуском необходимо определиться с настройками работы бота.\
@@ -49,20 +54,20 @@ bot:
   # Инструменты с которыми будет работать бот
   instrument:
     
-	# Настройки по умолчанию
-	default:
+    # Настройки по умолчанию
+    default:
       gap: 100.0				# См. описание алгоритм
       gap_ignore: 50.0			# См. описание алгоритм
       price_id: 'mark_price'	# Тип цены, от которого брать вычисления
       amount: 10				# Объем стартового входа
-	
-	# Далее перечислены инструменты с которыми работает бот
-	# Для каждого из них указан 
-	#  - btc-perpetual - по умолчанию
-	#  - eth-perpetual - объем входа 5, остальное по умолчанию 
+
+    # Далее перечислены инструменты с которыми работает бот
+    # Для каждого из них указан 
+    #  - btc-perpetual - по умолчанию
+    #  - eth-perpetual - объем входа 5, остальное по умолчанию 
     btc-perpetual:
     eth-perpetual:
-		amount: 5
+      amount: 5
 
 # Настройки синхронизации
 synch:
@@ -71,7 +76,8 @@ synch:
 ```
 
 ## Простой пример запуска
-
+Пример простого работающего бота.\
+Без хранилища (не умеет восстанавливать состояние) и без логирования.
 ```python
 import yaml
 from deribitsimplebot import CBot
@@ -159,8 +165,8 @@ bot = CBot(
 )
 
 bot.run(
-	synch_mod = config['synch_mod'], 
-	synch_actual = config['synch_actual']
+	synch_mod = config['synch']['mod'], 
+    synch_actual = config['synch']['actual']
 )
 ```
 
@@ -238,7 +244,7 @@ bot = CBot(
 )
 
 bot.run(
-	synch_mod = config['synch_mod'], 
-	synch_actual = config['synch_actual']
+	synch_mod = config['synch']['mod'], 
+    synch_actual = config['synch']['actual']
 )
 ```
