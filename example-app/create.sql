@@ -1,8 +1,8 @@
 SET NAMES utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 
-CREATE DATABASE IF NOT EXISTS `derebit_bot`;
+CREATE DATABASE IF NOT EXISTS `deribit_bot`;
 
-USE `derebit_bot`;
+USE `deribit_bot`;
 
 CREATE TABLE IF NOT EXISTS `log` (
 	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,

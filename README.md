@@ -218,7 +218,7 @@ logging:
       <<: *db-cred
 
   loggers:
-    derebit_bot:
+    deribit_bot:
       handlers: [mysqldb, file]
 
   root:

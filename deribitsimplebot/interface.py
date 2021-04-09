@@ -1,7 +1,7 @@
 """ 'Интерфейс' (если быть точнее - жалкая ООП реплика на Python :) )
-Сделана в основном, чтоб обозначить методы которыми должен обладать сторедж для хранения заявок.
-Строгих требований к хранилищу нет. Данные хранение которых необходимо обеспечить и являются 
-обязательными - это: 
+Сделана в основном, чтоб обозначить методы которыми должен обладать сторедж для
+хранения заявок. Строгих требований к хранилищу нет. Данные хранение которых
+необходимо обеспечить и являются обязательными - это:
 
  - id:[str,int]                 - order_id с биржи
  - state:[str]                  - order_state - с биржи: filled, open, reject и т.п.
@@ -49,11 +49,11 @@
 
 class IBotStore:
 
-    def get(self, id = None, param = {}, order_by = {}):
+    def get(self, order_id = None, param = {}, order_by = {}):
         pass
 
     def insert(self, order, other_param, return_is_active = True, modify_active = True):
         pass
 
-    def update(self, id, order, other_param, return_is_active = True, modify_active = True):
+    def update(self, order_id, order, other_param, return_is_active = True, modify_active = True):
         pass

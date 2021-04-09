@@ -37,4 +37,4 @@ class COrder:
         elif not (self.source is None) and (name in self.source):
             return self.source[name]
         else:
-            raise AttributeError(f'{name} attribute not found in DerebitOrder')
+            raise AttributeError(f'{name} attribute not found in DeribitOrder')

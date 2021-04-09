@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "deribitsimplebot"
-version = "0.2.2"
+version = "0.2.3"
 description = "Class set for the implementation of a simple bot working with the Deribit crypto exchange"
 authors = ["Eliseev Nikolay <n.a.eliseev@gmail.com>"]
 repository = "https://github.com/n-eliseev/deribitsimplebot"
